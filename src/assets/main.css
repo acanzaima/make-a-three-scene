@@ -1,0 +1,115 @@
+@import "base.css";
+/* 渐变 */
+@import 'iconfont/iconfont.css';
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-in-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+/* 底部消退 */
+.slide-bottom-enter-active,
+.slide-bottom-leave-active {
+  transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+}
+.slide-bottom-enter-from {
+  opacity: 0;
+  transform: translateY(-10%);
+}
+.slide-bottom-leave-to {
+  opacity: 0;
+  transform: translateY(10%);
+}
+/* 右侧消退 */
+.slide-right-leave-active,
+.slide-right-enter-active {
+  transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+}
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(60px);
+}
+/* 左侧消退 */
+.slide-left-leave-active,
+.slide-left-enter-active {
+  transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+}
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(60px);
+}
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+/* 放大渐变 */
+.zoom-in-enter-active,
+.zoom-in-leave-active {
+  transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+}
+.zoom-in-enter-from {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.zoom-in-leave-to {
+  opacity: 0;
+  transform: scale(1.1);
+}
+/* 缩小渐变 */
+.zoom-out-leave-active,
+.zoom-out-enter-active {
+  transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+}
+.zoom-out-enter-from {
+  opacity: 0;
+  transform: scale(1.2);
+}
+.zoom-out-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
+#app {
+  width: 100vw;
+  height: 100vh;
+  font-weight: normal;
+  box-sizing: border-box;
+}
+#app h1,
+#app h2,
+#app h3,
+#app h4,
+#app h5,
+#app h6,
+#app ul {
+  margin: 0;
+  padding: 0;
+  transition: color 0.3s;
+}
+#app h1:hover,
+#app h2:hover,
+#app h3:hover,
+#app h4:hover,
+#app h5:hover,
+#app h6:hover,
+#app ul:hover {
+  color: var(--color-text-hover);
+}
+#app ul {
+  list-style: none;
+}
+a {
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+a svg {
+  fill: currentColor;
+}
+a:hover {
+  color: var(--color-text-hover);
+}

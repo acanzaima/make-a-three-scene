@@ -1,0 +1,38 @@
+@import "./base.css";
+@import './transition/index.less';
+@import './iconfont/iconfont.css';
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  font-weight: normal;
+  box-sizing: border-box;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul {
+    margin: 0;
+    padding: 0;
+    transition: color .3s;
+    &:hover {
+      color: var(--color-text-hover);
+    }
+  }
+  ul {
+    list-style: none;
+  }
+}
+
+a {
+  color: var(--color-text);
+  transition: color .3s;
+  svg {
+    fill: currentColor;
+  }
+  &:hover {
+    color: var(--color-text-hover);
+  }
+}
