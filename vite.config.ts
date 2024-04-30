@@ -35,7 +35,7 @@ export default defineConfig(({ command }) => {
     base: BASE_PATH === "/" ? "/" : `${BASE_PATH}/`,
     build: {
       target: "es2015",
-      outDir: "public",
+      outDir: "doc",
     },
   };
 });
