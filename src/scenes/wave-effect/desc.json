@@ -1,7 +1,7 @@
 {
   "author": "starry sky",
-  "value": "orbit-satellite",
-  "name": "卫星环绕",
+  "value": "wave-effect",
+  "name": "粒子波浪",
   "img": "scene.png",
-  "desc": "仿照卫星环绕运动效果"
+  "desc": "搬运自iview首页"
 }

@@ -4,6 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import ResourceTracker from "@/utils/resource-tracker";
 import earthImg from "./img/earth.jpg?url";
 import earthOutLine from "./img/earth_outline.png?url";
+import earthOutAureole from "./img/halo.png";
 
 interface DefaultCfg {
   textData: Array<string>;
@@ -74,6 +75,7 @@ class OrbitSatellitesEffect {
   controls: OrbitControls;
   Earth: THREE.Mesh;
   EarthOut: THREE.Sprite;
+  EarthAureole: THREE.Sprite;
   group: CustomGroup;
   satelliteTrack: ResourceTracker;
   pointerMoveCopy: any;
@@ -156,8 +158,8 @@ class OrbitSatellitesEffect {
     const sheight = this.sceneDom.clientHeight;
 
     // 相机
-    this.camera = new THREE.PerspectiveCamera(60, sWidth / sheight, 1, 1000);
-    this.camera.position.z = 300;
+    this.camera = new THREE.PerspectiveCamera(60, sWidth / sheight, 1, 2000);
+    this.camera.position.z = this.radius * 1.3;
 
     // 渲染器
     this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -228,6 +230,19 @@ class OrbitSatellitesEffect {
     EarthOut.position.set(0, 0, 0);
     this.EarthOut = EarthOut;
     this.scene.add(EarthOut);
+
+    // 地球光晕
+    const earthAureoleTexture = new THREE.TextureLoader().load(earthOutAureole);
+    const EarthAureole = new THREE.Sprite(
+      new THREE.SpriteMaterial({ map: earthAureoleTexture })
+    );
+    EarthAureole.scale.x =
+      EarthAureole.scale.y =
+      EarthAureole.scale.z =
+        this.radius * 1.3;
+    EarthAureole.name = "地球光晕";
+    this.EarthAureole = EarthAureole;
+    this.scene.add(EarthAureole);
   }
 
   // 创建文字实体
@@ -379,6 +394,7 @@ class OrbitSatellitesEffect {
       this.sceneDom.clientWidth,
       this.sceneDom.clientHeight
     );
+    this.render();
   }
 
   // 监听器
